@@ -13,7 +13,7 @@ public class Practice2_8 {
 		}
 		
 		//The second Hacker practice on Note3
-		for(double i=-4; i>=-10;i--) {
+		for(double i=-4; i>=-40;i--) {
 			double h= Math.pow(2, i);
 			
 			double d_1=derivative_1(h, 1);

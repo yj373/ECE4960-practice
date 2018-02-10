@@ -14,6 +14,30 @@ public class Practice2_6 {
 			System.out.println("h= "+h+"\tfirst-order derivative: "+d_1+"\trelative error: "+e_1+
 								"\tsecond-order derivative: "+d_2+"\trelative error: "+e_2);
 		}
+		
+		System.out.println("for the function f(x)=x^2+10^10");
+		for(double h=0.1; h>=Math.pow(10, -18); h=h/10) {
+			double d_1= derivative_1(1,0,Math.pow(10, 10),1,h);
+			double e_1= relativeErr(d_1, 2);
+
+			double d_2= derivative_2(1,0,Math.pow(10, 10),1,h);
+			double e_2= relativeErr(d_2, 2);
+			
+			System.out.println("h= "+h+"\tfirst-order derivative: "+d_1+"\trelative error: "+e_1+
+								"\tsecond-order derivative: "+d_2+"\trelative error: "+e_2);
+		}
+		
+		System.out.println("for the function: f(x)=x^2+10^8");
+		for(double h=0.1; h>=Math.pow(10, -18); h=h/10) {
+			double d_1= derivative_1(1,0,Math.pow(10, 8),1,h);
+			double e_1= relativeErr(d_1, 2);
+
+			double d_2= derivative_2(1,0,Math.pow(10, 8),1,h);
+			double e_2= relativeErr(d_2, 2);
+			
+			System.out.println("h= "+h+"\tfirst-order derivative: "+d_1+"\trelative error: "+e_1+
+								"\tsecond-order derivative: "+d_2+"\trelative error: "+e_2);
+		}
 
 	}
 	public static double function(double a, double b, double c, double x) {
