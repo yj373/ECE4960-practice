@@ -1,0 +1,86 @@
+The second-level report for Integer Overflow:
+compute2!	result:2
+compute3!	result:6
+compute4!	result:24
+compute5!	result:120
+compute6!	result:720
+compute7!	result:5040
+compute8!	result:40320
+compute9!	result:362880
+compute10!	result:3628800
+compute11!	result:39916800
+compute12!	result:479001600
+compute13!	result:1932053504
+
+The second-level report for integer divided by zero : An Exception is caught: / by zero
+
+The second-level report for float-point overflow:
+Ground truth: 1.7e301	fact:1.7000000000000001E301
+Ground truth: 1.7e302	fact:1.7000000000000002E302
+Ground truth: 1.7e303	fact:1.7E303
+Ground truth: 1.7e304	fact:1.7E304
+Ground truth: 1.7e305	fact:1.7E305
+Ground truth: 1.7e306	fact:1.7E306
+Ground truth: 1.7e307	fact:1.7000000000000001E307
+Ground truth: 1.7e308	fact:1.7000000000000001E308
+Ground truth: 1.7e309	fact:Infinity
+
+The second-level report for INF and NINF:
+x=Infinity	sin(x)=NaN	1/x=0.0	exp(x)=Infinity
+x=-Infinity	sin(x)=NaN	1/x=-0.0	exp(x)=0.0
+INF*INF=Infinity	NINF*NINF=Infinity	INF*NINF=-Infinity
+INF/INF=NaN	NINF/NINF=NaN	INF/NINF=NaN
+INF+INF=Infinity	NINF+NINF=-Infinity	INF+NINF=NaN
+INF-INF=NaN	NINF-NINF=NaN	INF-NINF=Infinity
+
+The second-level report for NAN:
+NAN is detected!
+x=NaN	sin(x)=NaN	1/x=NaN	exp(x)=NaN
+NAN*NAN=NaN	NAN/NAN=NaN	NAN+NAN=NaN	NAN-NAN=NaN
+
+The second-level report for signed zero:
+x=0.0	log(+0)=-Infinity	sin(+0)/(+0)=NaN	
+x=-0.0	log(-0)=-Infinity	sin(-0)/(-0)=NaN		sin(-0)/(|-0|)=NaN
+
+The second-level report for float-point underflow:
+x=1.2345678E-313	y=1.2345677E-313	x-y=1.0E-320	false
+x=1.2345678E-313	y=1.2345677E-313	x/y=1.0000000809991114
+x=1.0E-315	sin(1.23456789012345*x)/x=1.2345678879374924
+
+x=1.2345678E-314	y=1.2345677E-314	x-y=1.003E-321	false
+x=1.2345678E-314	y=1.2345677E-314	x/y=1.0000000812392273
+x=1.0E-316	sin(1.23456789012345*x)/x=1.2345678963549072
+
+x=1.2345678E-315	y=1.2345677E-315	x-y=1.04E-322	false
+x=1.2345678E-315	y=1.2345677E-315	x/y=1.0000000840405803
+x=9.999997E-318	sin(1.23456789012345*x)/x=1.2345681025206248
+
+x=1.2345678E-316	y=1.2345677E-316	x-y=1.0E-323	false
+x=1.2345678E-316	y=1.2345677E-316	x/y=1.000000080038649
+x=1.0E-318	sin(1.23456789012345*x)/x=1.2345678402387328
+
+x=1.234568E-317	y=1.234568E-317	x-y=0.0	true
+x=1.234568E-317	y=1.234568E-317	x/y=1.0
+x=1.0E-319	sin(1.23456789012345*x)/x=1.2345849802371542
+
+x=1.234566E-318	y=1.234566E-318	x-y=0.0	true
+x=1.234566E-318	y=1.234566E-318	x/y=1.0
+x=1.0E-320	sin(1.23456789012345*x)/x=1.234683794466403
+
+x=1.23457E-319	y=1.23457E-319	x-y=0.0	true
+x=1.23457E-319	y=1.23457E-319	x/y=1.0
+x=1.0E-321	sin(1.23456789012345*x)/x=1.2326732673267327
+
+x=1.2347E-320	y=1.2347E-320	x-y=0.0	true
+x=1.2347E-320	y=1.2347E-320	x/y=1.0
+x=1.0E-322	sin(1.23456789012345*x)/x=1.25
+
+x=1.235E-321	y=1.235E-321	x-y=0.0	true
+x=1.235E-321	y=1.235E-321	x/y=1.0
+x=1.0E-323	sin(1.23456789012345*x)/x=1.0
+
+x=1.24E-322	y=1.24E-322	x-y=0.0	true
+x=1.24E-322	y=1.24E-322	x/y=1.0
+x=0.0	sin(1.23456789012345*x)/x=NaN
+
+Compute pi3.141592653589793115997963468544185161590576171875
