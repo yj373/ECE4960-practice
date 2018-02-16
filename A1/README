@@ -1,0 +1,7 @@
+Coding language: Java     Platform: eclipse
+My project consists of three different files and an output folder.
+The first file A1.java is the main method of the whole project. In this file, the main method calls different methods to 
+generate overflows and write the corresponding two-level reports.
+The secod file Functions.java contains all the methods corresponding to the topics in the assignment.
+The thid file Tests.java contains all the testing methods which are used to detect overflow, signed zero and so on.
+The two-level reports are in the output folder. The reports are generated automatically by the program.
