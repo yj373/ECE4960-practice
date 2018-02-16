@@ -2,6 +2,7 @@ package A1;
 
 import java.io.BufferedWriter;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Functions {
 	public static void handleException(BufferedWriter output_1, BufferedWriter output_2, Exception e, String task) {
@@ -226,12 +227,44 @@ public class Functions {
 	
 	public void calculatePi(BufferedWriter output_2) {
 		try {
+//			BigDecimal atan_1= new BigDecimal(Math.atan(0.125)).multiply(new BigDecimal(6));
+//			BigDecimal atan_2= new BigDecimal(Math.atan(1.0/57.0)).multiply(new BigDecimal(2));
+//			BigDecimal atan_3= new BigDecimal(Math.atan(1.0/239.0));
+//			BigDecimal res_= atan_1.add(atan_2).add(atan_3);
+//			res_= res_.multiply(new BigDecimal(4));
 			BigDecimal res= new BigDecimal((6*Math.atan(0.125)+2*Math.atan(1.0/57.0)+Math.atan(1.0/239.0))*4);
+			BigDecimal res_= new BigDecimal(1);
+			for(int k=1; k<=600; k++) {
+				BigDecimal step1= pow(2, k);
+				BigDecimal step2= factorial(k).multiply(factorial(k));
+				BigDecimal step3= factorial(2*k+1);
+				BigDecimal step4= step1.multiply(step2);
+				BigDecimal step5= step4.divide(step3, 50, RoundingMode.HALF_UP);
+				res_= res_.add(step5);
+			}
+			res_= res_.multiply(new BigDecimal(2));
+			System.out.println(res_);
+			
 			output_2.write("Compute pi"+res);
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}	
 	}
+	public BigDecimal factorial(int k) {
+		BigDecimal res= new BigDecimal(1);
+		for(int i=1; i<=k; i++) {
+			res=res.multiply(new BigDecimal(i));
+		}
+		return res;
+	}
+	public BigDecimal pow(int m, int n) {
+		BigDecimal res= new BigDecimal(1);
+		for(int i=1; i<=n; i++) {
+			res= res.multiply(new BigDecimal(m));
+		}
+		return res;
+	}
+	
 	
 	
 }
