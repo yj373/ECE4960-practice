@@ -1,0 +1,15 @@
+Coding Language: Java   Platform: eclipse
+Name: Yixuan Jiang    NetId: yj373
+
+Introduction:
+This assignment is to implement a Jacobi iterative matrix solver. The main part of this assignment consists of three classes.
+The firs class is "iterative_solver" which is used to implement the functions of the iterative solver. The second class "Tests"
+includes all the test funtions used to test each module in the "iterative_solver". The thirs class is "main" which is used to 
+load the huge sparse matrix and output the results using iterative solver. The outputs are resorded in three output files. When
+the convergence threshold is 10^-7, the output file is output1. When the convergence threshold is 10^-8, the output file is 
+output2. When the convergence threshold is 10^-9, the output file is output3. More detailed introduction is in the Report.pdf.
+
+Notice:
+In order to improve the efficiency and the reusavility of the codes. I create two helper methods to compute the product of two 
+matrices and the product of a matrix and a vector. These two methods are also added to the SparseMatrix class in homework_4. In
+the SparseMatrix class, I also added two methods used to compute the sum of two matrices and the difference of thwo matrices.
