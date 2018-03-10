@@ -12,10 +12,10 @@ public class SparseMatrix {
 	int rowNum;
 	int colNum;
 	//Constructor
-	public SparseMatrix(double[] v, int[] rP, int[]cI) {
+	public SparseMatrix(double[] v, int[] rP, int[]cI, int colN) {
 		value= new ArrayList<Double>();
 		rowNum= rP.length-1;
-		colNum= 0;
+		colNum= colN;
 		for(int i=0; i<v.length; i++) {
 			value.add(v[i]);
 		}
@@ -26,21 +26,61 @@ public class SparseMatrix {
 		colInd= new ArrayList<Integer>();
 		for(int i=0; i<cI.length; i++) {
 			colInd.add(cI[i]);
-			if(colInd.get(i)+1>colNum) colNum= colInd.get(i)+1;
 		}
 
 	}
-	public SparseMatrix(ArrayList<Double>v, ArrayList<Integer> rP, ArrayList<Integer> cI) {
+	public SparseMatrix(double[]v, int[] rP, int[]cI) {
+		value= new ArrayList<Double>();
+		rowNum= rP.length-1;
+		colNum=0;
+		for(int i=0; i<v.length; i++) {
+			value.add(v[i]);
+		}
+		rowPtr= new ArrayList<Integer>();
+		for(int i=0; i<rP.length; i++) {
+			rowPtr.add(rP[i]);
+		}
+		colInd= new ArrayList<Integer>();
+		for(int i=0; i<cI.length; i++) {
+			colInd.add(cI[i]);
+			if(cI[i]+1>colNum) colNum=cI[i]+1;
+		}
+	}
+	public SparseMatrix(ArrayList<Double>v, ArrayList<Integer> rP, ArrayList<Integer> cI, int colN) {
 		value= v;
 		rowPtr= rP;
 		colInd= cI;
 		rowNum= rP.size()-1;
+		colNum=colN;
+	}
+	public SparseMatrix(ArrayList<Double>v, ArrayList<Integer>rP, ArrayList<Integer>cI) {
+		value=v;
+		rowPtr= rP;
+		colInd= cI;
+		rowNum= rP.size()-1;
 		colNum=0;
-		for(Integer i: cI) {
-			if(i+1>colNum) colNum= i+1;
+		for(Integer i: colInd) {
+			if(i+1>colNum) colNum=i+1;
 		}
 	}
-	
+	public SparseMatrix() {
+		
+	}
+	public int getRowNum() {
+		return rowNum;
+	}
+	public int getColNum() {
+		return colNum;
+	}
+	public ArrayList<Double> getValue(){
+		return value;
+	}
+	public ArrayList<Integer> getRowPtr(){
+		return rowPtr;
+	}
+	public ArrayList<Integer> getColInd(){
+		return colInd;
+	}
 	//Switch row[x] and row[y] for the sparse matrix
 	public void rowPermute(int x, int y) {
 		if(x>=rowPtr.size()||y>=rowPtr.size()) return;
@@ -186,7 +226,102 @@ public class SparseMatrix {
 			}
 			rowPtrT.add(rowPtrT.get(rowPtrT.size()-1)+nonZero);
 		}
-		return new SparseMatrix(valueT, rowPtrT, colIndT);
+		return new SparseMatrix(valueT, rowPtrT, colIndT,this.rowNum);
+	}
+	//A is a diagonal matrix, compute the product of two matrices A and B
+		public SparseMatrix specialProductAB(SparseMatrix A, SparseMatrix B) {
+			if(A.getColNum()!=B.getRowNum()) return new SparseMatrix();
+			ArrayList<Double> value= new ArrayList<Double>();
+			ArrayList<Integer> rP= new ArrayList<Integer>();
+			ArrayList<Integer> cI= new ArrayList<Integer>();
+			rP.add(0);
+			for(int i=1; i<=A.getRowNum(); i++) {
+				int count=0;
+				for(int j=1; j<=B.getColNum(); j++) {
+					double ele=A.retrieveElementRC(i, i)*B.retrieveElementRC(i, j);
+					if(ele!=0) {
+						value.add(ele);
+						cI.add(j-1);
+						count++;
+					}
+				}
+				rP.add(rP.get(i-1)+count);
+			}
+			return new SparseMatrix(value, rP, cI, B.getColNum());
+		}
+		//A is a diagonal matrix, compute the product oa A and a vectorX
+		public Vector specialProductAX(SparseMatrix A, Vector x) {
+			if(A.getColNum()!=x.getLength()) return new Vector();
+			double[] value= new double[x.getLength()];
+			for(int i=1; i<=x.getLength(); i++) {
+				value[i-1]= A.retrieveElementRC(i, i)*x.getValue()[i-1];
+			}
+			return new Vector(value);
+		}
+	//Return the product of two sparse matrices A*B
+	public SparseMatrix productAB(SparseMatrix B) {
+		if(this.colNum!=B.getRowNum()) return new SparseMatrix();
+		ArrayList<Double> value= new ArrayList<Double>();
+		ArrayList<Integer> rP= new ArrayList<Integer>();
+		ArrayList<Integer> cI= new ArrayList<Integer>();
+		rP.add(0);
+		for(int i=1; i<=this.rowNum; i++) {
+			int count=0;
+			for(int j=1; j<=B.colNum; j++) {
+				double ele=0;
+				for(int k=1; k<=this.colNum; k++) {
+					ele= ele+this.retrieveElementRC(i, k)*B.retrieveElementRC(k, j);
+				}
+				if(ele!=0) {
+					count++;
+					value.add(ele);
+					cI.add(j-1);
+				}
+			}
+			rP.add(rP.get(i-1)+count);
+		}
+		return new SparseMatrix(value, rP, cI, B.colNum);
+	}
+	//Get the sum of two matrices A+B
+	public SparseMatrix add(SparseMatrix B) {
+		if(this.colNum!=B.getColNum()||this.rowNum!=B.getRowNum()) return new SparseMatrix();
+		ArrayList<Double> value= new ArrayList<Double>();
+		ArrayList<Integer> rP= new ArrayList<Integer>();
+		ArrayList<Integer> cI= new ArrayList<Integer>();
+		rP.add(0);
+		for(int i=1; i<=this.rowNum; i++) {
+			int count=0;
+			for(int j=1; j<=this.colNum; j++) {
+				double ele= this.retrieveElementRC(i, j)+B.retrieveElementRC(i, j);
+				if(ele!=0) {
+					count++;
+					value.add(ele);
+					cI.add(j-1);
+				}
+			}
+			rP.add(rP.get(i-1)+count);
+		}
+		return new SparseMatrix(value, rP, cI, this.colNum);
+	}
+	public SparseMatrix subtract(SparseMatrix B) {
+		if(this.colNum!=B.getColNum()||this.rowNum!=B.getRowNum()) return new SparseMatrix();
+		ArrayList<Double> value= new ArrayList<Double>();
+		ArrayList<Integer> rP= new ArrayList<Integer>();
+		ArrayList<Integer> cI= new ArrayList<Integer>();
+		rP.add(0);
+		for(int i=1; i<=this.rowNum; i++) {
+			int count=0;
+			for(int j=1; j<=this.colNum; j++) {
+				double ele= this.retrieveElementRC(i, j)-B.retrieveElementRC(i, j);
+				if(ele!=0) {
+					count++;
+					value.add(ele);
+					cI.add(j-1);
+				}
+			}
+			rP.add(rP.get(i-1)+count);
+		}
+		return new SparseMatrix(value, rP, cI, this.colNum);
 	}
 
 }

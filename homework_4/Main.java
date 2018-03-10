@@ -1,7 +1,6 @@
 package homework_4;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main {
 
@@ -13,7 +12,7 @@ public class Main {
 		double[][] value_= {{1,2,0,0,3},{4,5,6,0,0},{0,7,8,0,9},{0,0,0,10,0},{11,0,0,0,12}};
 		double[] vec= {5,4,3,2,1};
 		Vector vector= new Vector(vec);
-		SparseMatrix sm= new SparseMatrix(value, rowPtr, colInd);
+		SparseMatrix sm= new SparseMatrix(value, rowPtr, colInd, 5);
 		FullMatrix fm= new FullMatrix(value_);
 		permutationTest1(sm, fm);
 		rowScalingTest1(sm, fm);
@@ -75,6 +74,7 @@ public class Main {
 		for(int i=0; i<sv.length; i++) {
 			norm= norm+ Math.pow(fv.value[i]-sv.value[i], 2);
 		}
+		norm= Math.sqrt(norm);
 		return norm;
 	}
 	public static void permutationTest1(SparseMatrix sm, FullMatrix fm) {

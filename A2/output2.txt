@@ -1,0 +1,21 @@
+Time used for loading matrix:385ms
+Doing test*****************************************
+The number of iterations: 12
+The result of known matrix test: Pass
+The result of specialProductAX test: Pass
+The result of specialProductAB test: Pass
+The result of getDiagonal test: Pass
+The result of inversD test: Pass
+All tests done!***********************************
+When b=(1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...), use iterative solver to solve A*x=b
+The number of iterations: 3
+The second norm of residual vector: 3.5229790439103625E-8
+Total time used of solving A*x=b: 13750ms
+When b=(0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0...), use iterative solver to solve A*x=b
+The number of iterations: 3
+The second norm of residual vector: 4.0233733326412927E-8
+Total time used of solving A*x=b: 10305ms
+When b=(1.0, 1.0, 1.0...), use iterative solver to solve A*x=b
+The number of iterations: 6
+The second norm of residual vector: 2.1323520988518487E-10
+Total time used of solving A*x=b: 14809ms
