@@ -1,5 +1,18 @@
-Time used for loading matrix:397ms
+Before loading matrix, used memory:1363176 bytes
+After loading matrix, used memory: 18840680 bytes
+Time used for loading matrix:386ms
 Doing test*****************************************
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
+Memory used during iterations:18840680 bytes
 The number of iterations: 11
 The result of known matrix test: Pass
 The result of specialProductAX test: Pass
@@ -8,14 +21,23 @@ The result of getDiagonal test: Pass
 The result of inversD test: Pass
 All tests done!***********************************
 When b=(1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...), use iterative solver to solve A*x=b
+Memory used during iterations:78521768 bytes
+Memory used during iterations:78561784 bytes
 The number of iterations: 2
 The second norm of residual vector: 8.925580049279586E-7
-Total time used of solving A*x=b: 12528ms
+Total time used of solving A*x=b: 12641ms
 When b=(0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0...), use iterative solver to solve A*x=b
+Memory used during iterations:52597296 bytes
+Memory used during iterations:52597296 bytes
 The number of iterations: 2
 The second norm of residual vector: 1.0134741350734058E-6
-Total time used of solving A*x=b: 9286ms
+Total time used of solving A*x=b: 9593ms
 When b=(1.0, 1.0, 1.0...), use iterative solver to solve A*x=b
+Memory used during iterations:44148416 bytes
+Memory used during iterations:46848720 bytes
+Memory used during iterations:46848720 bytes
+Memory used during iterations:46848720 bytes
+Memory used during iterations:46848720 bytes
 The number of iterations: 5
 The second norm of residual vector: 5.143778253347723E-9
-Total time used of solving A*x=b: 13643ms
+Total time used of solving A*x=b: 14400ms

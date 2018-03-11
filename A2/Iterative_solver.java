@@ -43,6 +43,7 @@ public class Iterative_solver {
 	}
 	//Keep iterating until the result converges
 	public Vector iterate() {
+		Runtime r=Runtime.getRuntime();
 		SparseMatrix D= this.getDiagonal();
 		SparseMatrix DI= this.inverseD(D);
 		Vector x0= specialProductAX(DI,b);
@@ -50,10 +51,15 @@ public class Iterative_solver {
 		SparseMatrix para= specialProductAB(DI, step1);
 		Vector x= para.productAx(x0).add(DI.productAx(b));
 		int count=1;
-		while(x.computeSecondNorm(x0)>Math.pow(10, -9)) {
+		long m= r.totalMemory()-r.freeMemory();
+		System.out.println("Memory used during iterations:"+m+" bytes");
+		while(x.computeSecondNorm(x0)>Math.pow(10, -7)) {
 			x0=x;
 			x= para.productAx(x0).add(DI.productAx(b));
 			count++;
+			m= r.totalMemory()-r.freeMemory();
+			System.out.println("Memory used during iterations:"+m+" bytes");
+			
 		}
 		System.out.println("The number of iterations: "+count);
 		return x;

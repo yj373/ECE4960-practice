@@ -13,7 +13,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		//Doing Tests before solving A*x=b for large matrix A
 		Tests t= new Tests();
-		
+		Runtime r= Runtime.getRuntime();
+		long m0= r.totalMemory()-r.freeMemory();
+		System.out.println("Before loading matrix, used memory:"+m0+" bytes");
 		long start= System.currentTimeMillis();
 		ArrayList<Double> value= new ArrayList<Double>();
 		ArrayList<Integer> rowPtr= new ArrayList<Integer>();
@@ -52,6 +54,8 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		SparseMatrix A= new SparseMatrix(value, rowPtr, colInd);
+		long m1= r.totalMemory()-r.freeMemory();
+		System.out.println("After loading matrix, used memory: "+m1+" bytes");
 		long end= System.currentTimeMillis();
 		System.out.println("Time used for loading matrix:"+(end-start)+"ms");
 		double[] val_b1= new double[5000];

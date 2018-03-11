@@ -1,5 +1,21 @@
-Time used for loading matrix:284ms
+Before loading matrix, used memory:1363176 bytes
+After loading matrix, used memory: 18802504 bytes
+Time used for loading matrix:376ms
 Doing test*****************************************
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
+Memory used during iterations:20196784 bytes
 The number of iterations: 14
 The result of known matrix test: Pass
 The result of specialProductAX test: Pass
@@ -8,14 +24,28 @@ The result of getDiagonal test: Pass
 The result of inversD test: Pass
 All tests done!***********************************
 When b=(1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...), use iterative solver to solve A*x=b
+Memory used during iterations:78783312 bytes
+Memory used during iterations:78783312 bytes
+Memory used during iterations:80102176 bytes
+Memory used during iterations:80102176 bytes
 The number of iterations: 4
 The second norm of residual vector: 1.458435828213199E-9
-Total time used of solving A*x=b: 16229ms
+Total time used of solving A*x=b: 16783ms
 When b=(0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0...), use iterative solver to solve A*x=b
+Memory used during iterations:53075552 bytes
+Memory used during iterations:53075552 bytes
+Memory used during iterations:54472504 bytes
+Memory used during iterations:54472504 bytes
 The number of iterations: 4
 The second norm of residual vector: 1.6660286669987395E-9
-Total time used of solving A*x=b: 11904ms
+Total time used of solving A*x=b: 12535ms
 When b=(1.0, 1.0, 1.0...), use iterative solver to solve A*x=b
+Memory used during iterations:44644840 bytes
+Memory used during iterations:47343872 bytes
+Memory used during iterations:47343872 bytes
+Memory used during iterations:47343872 bytes
+Memory used during iterations:47343872 bytes
+Memory used during iterations:47343872 bytes
 The number of iterations: 6
 The second norm of residual vector: 2.1323520988518487E-10
-Total time used of solving A*x=b: 14851ms
+Total time used of solving A*x=b: 16170ms
