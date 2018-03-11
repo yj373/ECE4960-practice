@@ -1,0 +1,42 @@
+Use the Jacobi iterations to solve the problem***********************
+The number of iteration: 1	The second norm of residual vector: 0.4050462936504913
+The number of iteration: 2	The second norm of residual vector: 0.39187300637451417
+The number of iteration: 3	The second norm of residual vector: 0.16341016143243664
+The number of iteration: 4	The second norm of residual vector: 0.15250017009788158
+The number of iteration: 5	The second norm of residual vector: 0.06496297148400758
+The number of iteration: 6	The second norm of residual vector: 0.05967549902416047
+The number of iteration: 7	The second norm of residual vector: 0.025973538351778225
+The number of iteration: 8	The second norm of residual vector: 0.02345981752275335
+The number of iteration: 9	The second norm of residual vector: 0.010490015585743626
+The number of iteration: 10	The second norm of residual vector: 0.009276033611366658
+The number of iteration: 11	The second norm of residual vector: 0.004278333207285896
+The number of iteration: 12	The second norm of residual vector: 0.00369027730622494
+The number of iteration: 13	The second norm of residual vector: 0.0017588053337138536
+The number of iteration: 14	The second norm of residual vector: 0.0014767201263385262
+The number of iteration: 15	The second norm of residual vector: 7.272395676954232E-4
+The number of iteration: 16	The second norm of residual vector: 5.940764505260787E-4
+The number of iteration: 17	The second norm of residual vector: 3.0188359911721913E-4
+The number of iteration: 18	The second norm of residual vector: 2.4011210672154364E-4
+The number of iteration: 19	The second norm of residual vector: 1.2562334943617693E-4
+The number of iteration: 20	The second norm of residual vector: 9.743976139463695E-5
+The number of iteration: 21	The second norm of residual vector: 5.23492799424099E-5
+The number of iteration: 22	The second norm of residual vector: 3.967809622967751E-5
+The number of iteration: 23	The second norm of residual vector: 2.1829485552512003E-5
+The number of iteration: 24	The second norm of residual vector: 1.620418564747831E-5
+The number of iteration: 25	The second norm of residual vector: 9.104557648353985E-6
+The number of iteration: 26	The second norm of residual vector: 6.633829151045462E-6
+The number of iteration: 27	The second norm of residual vector: 3.796853000448223E-6
+The number of iteration: 28	The second norm of residual vector: 2.7213838329508586E-6
+The number of iteration: 29	The second norm of residual vector: 1.5829191762879849E-6
+The number of iteration: 30	The second norm of residual vector: 1.1182991635141738E-6
+The number of iteration: 31	The second norm of residual vector: 6.596602572196281E-7
+The number of iteration: 32	The second norm of residual vector: 4.601999310555945E-7
+The number of iteration: 33	The second norm of residual vector: 2.7478246227387266E-7
+The number of iteration: 34	The second norm of residual vector: 1.8960655426580414E-7
+Use LUMatrixSolver to solve the same problem**********************
+The second norm of of residual vector: 7.110250420355456E-17
+The upper bound of the first norm of DI*(L+U): 1.25
+The upper bound of the infinite norm of DI*(L+U): 1.25
+Use the SOR iterations to solve the problem***********************
+The number of iteration: 1	x(k): [-0.379310265381841, -0.40834830999160693, -0.11615237064500102, -0.056261294176224975, -0.10889287312359684]	x(k+1): [-0.37931032617576094, -0.40834840609457557, -0.11615243143891493, -0.056261327708073954, -0.10889290665543615]	The second norm of residual vector: 1.187731613631832E-7	The second norm of the difference of x: 1.3739123114996208E-7The second norm of r2.7478246227387266E-7
+The number of iteration: 2	x(k): [-0.37931032617576094, -0.40834840609457557, -0.11615243143891493, -0.056261327708073954, -0.10889290665543615]	x(k+1): [-0.379310330199245, -0.4083484619764038, -0.11615243546240983, -0.056261341339101587, -0.1088929202864813]	The second norm of residual vector: 1.270423186480418E-7	The second norm of the difference of x: 5.938658069488544E-8The second norm of r1.187731613631832E-7

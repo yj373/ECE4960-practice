@@ -71,6 +71,25 @@ public class Vector {
 		}
 		return new Vector(val);
 	}
+	//Return the difference of two vectors v1-v2
+	public Vector subtract(Vector v2) {
+		if(this.length!= v2.getLength()) return new Vector();
+		double[] val1= this.getValue();
+		double[] val2= v2.getValue();
+		double[] val= new double[val1.length];
+		for(int i=0; i<val.length; i++) {
+			val[i]= val1[i]-val2[i];
+		}
+		return new Vector(val);
+	}
+	public Vector scaling(double n) {
+		double[] value_res= new double[this.length];
+		double[] value= this.getValue();
+		for(int i=0; i< length; i++) {
+			value_res[i]= value[i]*n;
+		}
+		return new Vector(value_res);
+	}
 	
 
 }
