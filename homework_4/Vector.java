@@ -60,6 +60,14 @@ public class Vector {
 		}
 		return Math.sqrt(norm);
 	}
+	public double computeSecondNorm() {
+		double[] val1= this.getValue();
+		double norm=0;
+		for(int i=0; i<this.length; i++) {
+			norm=norm+Math.pow(val1[i], 2);
+		}
+		return Math.sqrt(norm);
+	}
 	//Return the sum of two vectors v1+v2
 	public Vector add(Vector v2) {
 		if(this.length!= v2.getLength()) return new Vector();

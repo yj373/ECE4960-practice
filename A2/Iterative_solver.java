@@ -86,7 +86,7 @@ public class Iterative_solver {
 		}
 		return new SparseMatrix(value, rP, cI, B.getColNum());
 	}
-	//A is a diagonal matrix, compute the product oa A and a vectorX
+	//A is a diagonal matrix, compute the product of A and a vectorX
 	public static Vector specialProductAX(SparseMatrix A, Vector x) {
 		if(A.getColNum()!=x.getLength()) return new Vector();
 		double[] value= new double[x.getLength()];

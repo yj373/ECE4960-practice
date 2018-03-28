@@ -42,21 +42,23 @@ public class Pravtice3_8 {
 		double newton_x=10;
 		double newton_fx= Math.exp(50*newton_x)-1;
 		double newton_dx= newton_fx/(-50*Math.exp(50*newton_x));
+		System.out.println("x= "+newton_x+"\tdelta_x= "+newton_dx+"\tf(x)= "+newton_fx+"\t"+newton_dx/newton_x);
 		while(Math.abs(newton_fx)>Math.pow(10, -7)) {
-			System.out.println("x= "+newton_x+"\tdelta_x= "+newton_dx+"\tf(x)= "+newton_fx);
 			newton_x= newton_x+newton_dx;
 			newton_fx= Math.exp(50*newton_x)-1;
 			newton_dx= newton_fx/(-50*Math.exp(50*newton_x));
+			System.out.println("x= "+newton_x+"\tdelta_x= "+newton_dx+"\tf(x)= "+newton_fx+"\t"+newton_dx/newton_x);
 		}
 		System.out.println("when x0=1");
 		double newton_x2=1;
 		double newton_fx2= Math.exp(50*newton_x2)-1;
 		double newton_dx2= newton_fx2/(-50*Math.exp(50*newton_x2));
+		System.out.println("x= "+newton_x2+"\tdelta_x= "+newton_dx2+"\tf(x)= "+newton_fx2);
 		while(Math.abs(newton_fx2)>Math.pow(10, -7)) {
-			System.out.println("x= "+newton_x2+"\tdelta_x= "+newton_dx2+"\tf(x)= "+newton_fx2);
 			newton_x2= newton_x2+newton_dx2;
 			newton_fx2= Math.exp(50*newton_x2)-1;
 			newton_dx2= newton_fx2/(-50*Math.exp(50*newton_x2));
+			System.out.println("x= "+newton_x2+"\tdelta_x= "+newton_dx2+"\tf(x)= "+newton_fx2);
 		}
 		
 
