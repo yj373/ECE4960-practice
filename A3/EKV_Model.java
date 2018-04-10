@@ -295,7 +295,7 @@ public class EKV_Model {
 		if(convergeTest.size()>=2&&Math.abs(convergeTest.get(convergeTest.size()-1)-convergeTest.get(convergeTest.size()-2))<1E-3) {
 			System.out.println("Newton method: Quadratic convergence is detected");
 		}else {
-			System.out.println("Newton method: Quadratic vonvergence is not detected");
+			System.out.println("Newton method: Quadratic convergence is not detected");
 		}
 		double[] para= {Is, k, Vth, norm0, increVector, sens_Is, sens_k, sens_Vth, flag};
 		return new Vector(para);
@@ -360,7 +360,7 @@ public class EKV_Model {
 		if(convergeTest.size()>=2&&Math.abs(convergeTest.get(convergeTest.size()-1)-convergeTest.get(convergeTest.size()-2))<1E-3) {
 			System.out.println("Secant method: Quadratic convergence is detected");
 		}else {
-			System.out.println("Secant method: Quadratic vonvergence is not detected");
+			System.out.println("Secant method: Quadratic convergence is not detected");
 		}
 		double[] para= {Is, k, Vth, norm0, increVector, sens_Is, sens_k, sens_Vth, flag};
 		
