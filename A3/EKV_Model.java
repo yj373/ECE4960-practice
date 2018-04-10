@@ -252,9 +252,14 @@ public class EKV_Model {
 		double sens_k=0;
 		double sens_Vth=0;
 		double increVector=0;
+		double temp= 0;
+		//Used to store the values of ||Vk||/(||Vk-1||)^2 to help detect quadratic convergence
+		ArrayList<Double> convergeTest= new ArrayList<Double>();
 		do {
 			delta_para= computeDelta_para(k, Vgs, Vth, Vds, Is, Id_measure);
 			norm0= computeNorm(k, Vgs, Vth, Vds, Is, Id_measure, 0, delta_para);
+			if(temp!=0) convergeTest.add(norm0/(temp*temp));
+			temp=norm0;
 			t=1;
 			norm1= computeNorm(k, Vgs, Vth, Vds, Is, Id_measure, t, delta_para);
 			norm2= computeNorm(k, Vgs, Vth, Vds, Is, Id_measure, t/2, delta_para);
@@ -283,8 +288,14 @@ public class EKV_Model {
 			
 		}while(norm0>Math.pow(10, -7)&&delta_para.computeSecondNorm()>Math.pow(10, -7));
 		double flag=0;
-		if(norm0<=50) {
+		if(norm0<=0.1) {
 			flag=1;
+		}
+		//Detect quadratic convergence
+		if(convergeTest.size()>=2&&Math.abs(convergeTest.get(convergeTest.size()-1)-convergeTest.get(convergeTest.size()-2))<1E-3) {
+			System.out.println("Newton method: Quadratic convergence is detected");
+		}else {
+			System.out.println("Newton method: Quadratic vonvergence is not detected");
 		}
 		double[] para= {Is, k, Vth, norm0, increVector, sens_Is, sens_k, sens_Vth, flag};
 		return new Vector(para);
@@ -302,10 +313,15 @@ public class EKV_Model {
 		double sens_k=0;
 		double sens_Vth=0;
 		double increVector=0;
+		double temp= 0;
+		//Used to store the values of ||Vk||/(||Vk-1||)^2 to help detect quadratic convergence
+		ArrayList<Double> convergeTest= new ArrayList<Double>();
 		do {
 			delta_para= computeDelta_para_s(k, p_k, Vgs, Vth, p_Vth, Vds, Is, p_Is, Id_measure);
 			norm0= computeNorm(k, Vgs, Vth, Vds, Is, Id_measure, 0, delta_para);
 			t=1;
+			if(temp!=0) convergeTest.add(norm0/(temp*temp));
+			temp=norm0;
 			norm1= computeNorm(k, Vgs, Vth, Vds, Is, Id_measure, t, delta_para);
 			norm2= computeNorm(k, Vgs, Vth, Vds, Is, Id_measure, t/2, delta_para);
 			while(norm1>norm2&&norm1>Math.pow(10, -7)) {
@@ -337,10 +353,17 @@ public class EKV_Model {
 		}while(norm0>Math.pow(10, -7)&&delta_para.computeSecondNorm()>Math.pow(10, -7));
 		//Detect converge or not
 		double flag=0;
-		if(norm0<=1) {
+		if(norm0<=0.1) {
 			flag=1;
 		}
+		//Detect quadratic convergence
+		if(convergeTest.size()>=2&&Math.abs(convergeTest.get(convergeTest.size()-1)-convergeTest.get(convergeTest.size()-2))<1E-3) {
+			System.out.println("Secant method: Quadratic convergence is detected");
+		}else {
+			System.out.println("Secant method: Quadratic vonvergence is not detected");
+		}
 		double[] para= {Is, k, Vth, norm0, increVector, sens_Is, sens_k, sens_Vth, flag};
+		
 		return new Vector(para);
 	}
 	//Module 5: Compute norm

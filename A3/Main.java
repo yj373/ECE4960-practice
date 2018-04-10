@@ -83,6 +83,18 @@ public class Main {
 			File task6Output= new File("src/A3/task6Output.txt");
 			task6Output.createNewFile();
 			BufferedWriter bw= new BufferedWriter(new FileWriter(task6Output));
+			double min_v_newton=100;
+			double min_Is_newton=100;
+			double min_k_newton=100;
+			double min_Vth_newton=100;
+			
+			double min_v_secant=100;
+			double min_Is1_secant=100;
+			double min_k1_secant=100;
+			double min_Vth1_secant=100;
+			double min_Is2_secant=100;
+			double min_k2_secant=100;
+			double min_Vth2_secant=100;
 			for(int i=0; i<Is_ini.length; i++) {
 				for(int j=0; j<k_ini.length; j++) {
 					for(int z=0; z<Vth_ini.length; z++) {
@@ -91,6 +103,12 @@ public class Main {
 						paraNewton_v= paraNewton.getValue();
 						bw.write("||V||= "+paraNewton_v[3]+"\tThe second norm of increment vector: "+paraNewton_v[4]+
 								"\tIs sencitivity: "+paraNewton_v[5]+"\tk sensitivity: "+paraNewton_v[6]+"\tVth sensitivity: "+paraNewton_v[7]+"\n");
+						if(!Double.isNaN(paraNewton_v[3])&&paraNewton_v[3]<min_v_newton) {
+							min_v_newton= paraNewton_v[3];
+							min_Is_newton= Is_ini[i];
+							min_k_newton= k_ini[j];
+							min_Vth_newton= Vth_ini[z];
+						}
 						double p_Is_v=0;
 						double p_k_v=0;
 						double p_Vth_v=0;
@@ -99,16 +117,28 @@ public class Main {
 						if(j==0) p_k_v= k_ini[4];
 						else p_k_v= k_ini[j-1];
 						if(z==0) p_Vth_v= Vth_ini[12];
-						else p_k_v= Vth_ini[z-1];
+						else p_Vth_v= Vth_ini[z-1];
 						bw.write("Task 4 (Secant) initial guesses: Is1= "+Is_ini[i]+"\tk1= "+k_ini[j]+"\tVth1= "+Vth_ini[z]
 								+"\tIs2= "+p_Is_v+"\tk2= "+p_k_v+"\tVth= "+p_Vth_v+"\n");
 						paraSecant= ekv.newtonEKV_s(k_ini[j], p_k_v, Vgs, Vth_ini[z], p_Vth_v, Vds, Is_ini[i], p_Is_v, Id_measure);
 						paraSecant_v= paraSecant.getValue();
 						bw.write("||V||= "+paraSecant_v[3]+"\tThe second norm of increment vector: "+paraSecant_v[4]+
 								"\tIs sencitivity: "+paraSecant_v[5]+"\tk sensitivity: "+paraSecant_v[6]+"\tVth sensitivity: "+paraSecant_v[7]+"\n");
+						if(!Double.isNaN(paraSecant_v[3])&&paraSecant_v[3]<min_v_secant) {
+							min_v_secant= paraSecant_v[3];
+							min_Is1_secant= Is_ini[i];
+							min_k1_secant= k_ini[j];
+							min_Vth1_secant= Vth_ini[z];
+							min_Is2_secant= p_Is_v;
+							min_k2_secant= p_k_v;
+							min_Vth2_secant= p_Vth_v;
+						}
 					}
 				}
 			}
+			System.out.println("Newton method:"+"\tIs= "+min_Is_newton+"\tk= "+min_k_newton+"\tVth= "+min_Vth_newton+"\t||V||= "+min_v_newton);
+			System.out.println("Secant method:"+"\tIs1= "+min_Is1_secant+"\tk1= "+min_k1_secant+"\tVth1= "+min_Vth1_secant+
+					"\tIs2= "+min_Is2_secant+"\tk2= "+min_k2_secant+"\tVth2= "+min_Vth2_secant+"\t||V||= "+min_v_secant);
 			bw.close();
 		}catch(Exception e) {
 			e.getMessage();
