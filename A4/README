@@ -1,0 +1,7 @@
+Coding language: Java  Platform: eclipse
+Name: Yixuan Jiang   Netid: yj373
+
+Introduction: Inthis assignment, I implement a rank flexible ODE solver to do simulation for a simle RC circuit and an amplifier
+circuit. All the results are inincluded in the three folders Amplifier_similation, RC_simulation and Validation. As for the 
+design of this program, there are overall four modules corresponding to the four classes. As for more detailed introduction,
+you can find it in the Report.
