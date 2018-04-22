@@ -1,0 +1,12 @@
+two Dirichlet conditions**********************************************************
+si0= 0.8
+si1= 0.6
+si2= 0.39999999999999986
+si3= 0.19999999999999996
+The second norm of error: 2.3551386880256624E-16
+One Dirichlet condition and one Neumann condition*********************************
+si0= 0.8
+si1= 0.6
+si2= 0.39999999999999986
+si3= 0.19999999999999996
+The second norm of error: 2.220446049250313E-16
