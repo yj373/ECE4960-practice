@@ -1,0 +1,31 @@
+Zero Dirichlet boundary conditions**********************************
+Upwinding forward Euler**********************************
+t = 2	u1 = 0.0	u2 = 40.0	u3 = -40.0	u4 = 10.0	u5 = 0.0
+t = 3	u1 = 0.0	u2 = 80.0	u3 = -120.0	u4 = 60.0	u5 = -10.0
+t = 4	u1 = 0.0	u2 = 160.0	u3 = -320.0	u4 = 240.0	u5 = -80.0
+t = 5	u1 = 0.0	u2 = 320.0	u3 = -800.0	u4 = 800.0	u5 = -400.0
+Upwinding backward Euler**********************************
+t = 2	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+t = 3	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+t = 4	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+t = 5	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+Downwinding forwardward Euler**********************************
+t = 2	u1 = 0.0	u2 = 0.0	u3 = 0.0	u4 = 0.0	u5 = 0.0
+t = 3	u1 = 0.0	u2 = 0.0	u3 = 0.0	u4 = 0.0	u5 = 0.0
+t = 4	u1 = 0.0	u2 = 0.0	u3 = 0.0	u4 = 0.0	u5 = 0.0
+t = 5	u1 = 0.0	u2 = 0.0	u3 = 0.0	u4 = 0.0	u5 = 0.0
+Downwinding forwardward Euler**********************************
+t = 2	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+t = 3	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+t = 4	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+t = 5	u1 = NaN	u2 = NaN	u3 = NaN	u4 = NaN	u5 = NaN
+Upwinding forward Euler (zero-slope Neumann condition)**********************************
+t = 2	u1 = 0.0	u2 = 40.0	u3 = -40.0	u4 = 10.0	u5 = 0.0
+t = 3	u1 = 0.0	u2 = 80.0	u3 = -120.0	u4 = 60.0	u5 = -10.0
+t = 4	u1 = 0.0	u2 = 160.0	u3 = -320.0	u4 = 240.0	u5 = -80.0
+t = 5	u1 = 0.0	u2 = 320.0	u3 = -800.0	u4 = 800.0	u5 = -400.0
+t = 6	u1 = 0.0	u2 = 640.0	u3 = -1920.0	u4 = 2400.0	u5 = -1600.0
+t = 7	u1 = 0.0	u2 = 1280.0	u3 = -4480.0	u4 = 6720.0	u5 = -5600.0
+t = 8	u1 = 0.0	u2 = 2560.0	u3 = -10240.0	u4 = 17920.0	u5 = -17920.0
+t = 9	u1 = 0.0	u2 = 5120.0	u3 = -23040.0	u4 = 46080.0	u5 = -53760.0
+t = 10	u1 = 0.0	u2 = 10240.0	u3 = -51200.0	u4 = 115200.0	u5 = -153600.0

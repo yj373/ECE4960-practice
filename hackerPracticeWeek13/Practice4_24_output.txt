@@ -1,0 +1,20 @@
+Zero Dirichlet boundary condition*******************************************
+The number of iterations: 24
+The number of iterations: 23
+t = 2	n1 = 1.2244897673075346	n2 = 2.2448979147875536	n3 = 1.2244897673075346
+The number of iterations: 22
+t = 3	n1 = 0.8454810024182318	n2 = 1.3119532887828915	n3 = 0.8454810024182318
+The number of iterations: 21
+t = 4	n1 = 0.5497708635546298	n2 = 0.8038316434236891	n3 = 0.5497708635546298
+The number of iterations: 21
+t = 5	n1 = 0.3504491534271076	n2 = 0.5015766326060018	n3 = 0.3504491534271076
+Zero-slope Neumann boundary condition*******************************************
+The number of iterations: 32
+The number of iterations: 32
+t = 2	n1 = 3.1249999032059455	n2 = 3.7499999032059455	n3 = 3.1249999032059455
+The number of iterations: 31
+t = 3	n1 = 3.2812498269806296	n2 = 3.4374998233508522	n3 = 3.2812498269806296
+The number of iterations: 31
+t = 4	n1 = 3.320312248940427	n2 = 3.3593747471255377	n3 = 3.320312248940427
+The number of iterations: 31
+t = 5	n1 = 3.330077796127087	n2 = 3.3398434204465035	n3 = 3.330077796127087

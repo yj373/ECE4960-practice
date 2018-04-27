@@ -36,7 +36,7 @@ public class Prctice4_19 {
 		double[] psi_v= psi.getValue();
 		ArrayList<Double> f_v= new ArrayList<Double>();
 		f_v.add(psi_v[1]+psi_v[0]*(-4)+psi_v[3]+h*h*(Math.exp(-psi_v[0])-Math.exp(psi_v[0])+ND)+2*psi0); 
-		f_v.add(psi_v[0]+psi_v[1]*(-4)+psi_v[2]+psi_v[4]+h*h*(Math.exp(-psi_v[1])-Math.exp(psi_v[1])+ND)+psi0);
+		f_v.add(psi_v[0]+psi_v[1]*(-4)+psi_v[2]+psi_v[4]+h*h*(Math.exp(-psi_v[1])-Math.exp(psi_v[1])+ND));
 		f_v.add(psi_v[1]+psi_v[2]*(-4)+psi_v[5]+h*h*(Math.exp(-psi_v[2])-Math.exp(psi_v[2])-NA));
 		f_v.add(psi_v[0]+psi_v[3]*(-4)+psi_v[4]+psi_v[6]+h*h*(Math.exp(-psi_v[3])-Math.exp(psi_v[3])+ND));
 		f_v.add(psi_v[1]+psi_v[3]+psi_v[4]*(-4)+psi_v[5]+psi_v[7]+h*h*(Math.exp(-psi_v[4])-Math.exp(psi_v[4])-NA));
