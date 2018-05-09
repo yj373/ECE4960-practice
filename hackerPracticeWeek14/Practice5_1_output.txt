@@ -1,0 +1,4 @@
+Approximate the sin(x) using 8 points
+The estimated area is: 1.9742316019455508
+Approximate the sin(x) using 100 points
+The estimated area is: 1.9998355038874456
