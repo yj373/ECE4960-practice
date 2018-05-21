@@ -1,0 +1,7 @@
+Author: Yixuan Jiang (yj373), Beitong Tian (bt346)
+Language: C++, Java
+
+In this project, we simulate the "Boost Converter" circuit with ideal switch and its practial implementation with CMOS switch.
+The ideal model is simulated using C++ while the other model is simulated using Java. The method used for solving ODE is RK34 
+with adaptive time step. The codes for simulating the first model are included in the folder Model1, while the codes for the other
+model are included in the folder Model2. For detailed introduction and analysis of the results, please read the report of the project 
